@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="06e5c179-90e4-4b79-80d3-95023f26bc74" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="$USER_HOME$/.asdf/installs/golang/1.13.1/go" />
+  <component name="ProjectId" id="1oi8F5kzBYoHpEzIodckiC9ZqtD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pkg/client" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pkg/client" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/internal/proto-files/domain" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pkg" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build github.com/MaxPolarfox/tasks/cmd/tasks">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="tasks" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$" />
+      <package value="tasks" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build github.com/MaxPolarfox/tasks/cmd/tasks" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="tasks" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/cmd/tasks/main.go" />
+      <package value="github.com/MaxPolarfox/tasks/cmd/tasks" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build tasks/cmd/grcp/server" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="tasks" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/cmd/grcp/server/main.go" />
+      <package value="tasks/cmd/grcp/server" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build tasks/cmd/grpc/client" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="tasks" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/cmd/grpc/client/main.go" />
+      <package value="tasks/cmd/grpc/client" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build tasks/cmd/grpc/server" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="tasks" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/cmd/grpc/server/main.go" />
+      <package value="tasks/cmd/grpc/server" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build tasks/cmd/tasks" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="tasks" />
+      <working_directory value="$PROJECT_DIR$" />
+      <envs>
+        <env name="APP_ENV" value="development" />
+      </envs>
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/cmd/tasks/main.go" />
+      <package value="tasks/cmd/tasks" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="tasks" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="DIRECTORY" />
+      <package value="tasks" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.go build tasks/cmd/grcp/server" />
+      <item itemvalue="Go Build.go build tasks/cmd/grpc/client" />
+      <item itemvalue="Go Build.go build tasks/cmd/grpc/server" />
+      <item itemvalue="Go Build.go build tasks/cmd/tasks" />
+      <item itemvalue="Go Build.go build github.com/MaxPolarfox/tasks/cmd/tasks" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build github.com/MaxPolarfox/tasks/cmd/tasks" />
+        <item itemvalue="Go Build.go build tasks/cmd/tasks" />
+        <item itemvalue="Go Build.go build tasks/cmd/grpc/client" />
+        <item itemvalue="Go Build.go build tasks/cmd/grpc/server" />
+        <item itemvalue="Go Build.go build tasks/cmd/grcp/server" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SshConsoleOptionsProvider">
+    <option name="myEncoding" value="UTF-8" />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="19" y="-688" key="#Go_Modules" timestamp="1613758547473">
+      <screen x="-421" y="-1057" width="2560" height="1057" />
+    </state>
+    <state x="19" y="-688" key="#Go_Modules/-421.-1057.2560.1057/0.23.1680.1027@-421.-1057.2560.1057" timestamp="1613758547473" />
+    <state x="304" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1613769158105">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="304" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1613769158105" />
+    <state x="-61" y="-720" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1613758117101">
+      <screen x="-421" y="-1057" width="2560" height="1057" />
+    </state>
+    <state x="-61" y="-720" key="#com.intellij.fileTypes.FileTypeChooser/-421.-1057.2560.1057/0.23.1680.1027@-421.-1057.2560.1057" timestamp="1613758117101" />
+    <state width="1638" height="280" key="GridCell.Tab.0.bottom" timestamp="1613771934632">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1238" height="290" key="GridCell.Tab.0.bottom/-421.-1057.2560.1057/0.23.1680.1027@-421.-1057.2560.1057" timestamp="1613761801260" />
+    <state width="1638" height="280" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1613771934632" />
+    <state width="1638" height="280" key="GridCell.Tab.0.center" timestamp="1613771934631">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1238" height="290" key="GridCell.Tab.0.center/-421.-1057.2560.1057/0.23.1680.1027@-421.-1057.2560.1057" timestamp="1613761801259" />
+    <state width="1638" height="280" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1613771934631" />
+    <state width="1638" height="280" key="GridCell.Tab.0.left" timestamp="1613771934631">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1238" height="290" key="GridCell.Tab.0.left/-421.-1057.2560.1057/0.23.1680.1027@-421.-1057.2560.1057" timestamp="1613761801259" />
+    <state width="1638" height="280" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1613771934631" />
+    <state width="1638" height="280" key="GridCell.Tab.0.right" timestamp="1613771934632">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1238" height="290" key="GridCell.Tab.0.right/-421.-1057.2560.1057/0.23.1680.1027@-421.-1057.2560.1057" timestamp="1613761801260" />
+    <state width="1638" height="280" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1613771934632" />
+    <state x="-272" y="-890" key="SettingsEditor" timestamp="1613759076256">
+      <screen x="-421" y="-1057" width="2560" height="1057" />
+    </state>
+    <state x="-272" y="-890" key="SettingsEditor/-421.-1057.2560.1057/0.23.1680.1027@-421.-1057.2560.1057" timestamp="1613759076256" />
+    <state x="541" y="291" width="598" height="548" key="find.popup" timestamp="1613771847521">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="541" y="291" width="598" height="548" key="find.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1613771847521" />
+  </component>
+</project>

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package service;
+
+option go_package = "tasks/pkg/grpc/service";
+
+import "tasks/internal/proto-files/messages/tasks.proto";
+
+//TaskService Definition
+service TaskService {
+  rpc add (messages.Task) returns (AddRepositoryResponse);
+}
+
+message AddRepositoryResponse {
+  messages.Task addedTask = 1;
+  Error error = 2;
+}
+message Error {
+  string code = 1;
+  string message = 2;
+}

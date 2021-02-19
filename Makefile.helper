@@ -1,0 +1,5 @@
+SERVICE_NAME=$(shell cat package.json | python2 -c 'import json,sys; obj=json.load(sys.stdin); print obj["name"]')
+GIT_COMMIT:= $(shell git rev-parse HEAD 2>/dev/null)
+GIT_SHA := $(shell echo "${GIT_COMMIT}" | cut -c 1-7)
+DEV_SERVICE_PORT=$(shell cat config/development.json | python2 -c 'import json,sys; obj=json.load(sys.stdin); print obj["httpPort"]')
+
