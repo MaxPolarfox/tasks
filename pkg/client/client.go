@@ -27,15 +27,9 @@ type TasksClientImpl struct {
 }
 
 func NewTasksClient() Client {
-	// Load current environment
-	env := os.Getenv(EnvironmentVariable)
-
-	// load config options
-	options := loadEnvironmentConfig(env)
-
 	var conn *grpc.ClientConn
 
-	serverAddress := fmt.Sprintf("localhost:%d", options.Port)
+	serverAddress := fmt.Sprintf("localhost:%d", 3005)
 
 	conn, err := grpc.Dial(serverAddress, grpc.WithInsecure())
 	if err != nil {
