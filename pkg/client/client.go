@@ -2,15 +2,21 @@ package client
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"github.com/MaxPolarfox/tasks/pkg/types"
+	"os"
 
 	"google.golang.org/grpc"
 
 	"github.com/MaxPolarfox/tasks/pkg/grpc/messages"
 	"github.com/MaxPolarfox/tasks/pkg/grpc/service"
 )
+
+const ServiceName = "tasks"
+const EnvironmentVariable = "APP_ENV"
 
 type Client interface {
 	AddTask(ctx context.Context, data string) (*types.CreatedTaskResponse, error)
@@ -20,7 +26,12 @@ type TasksClientImpl struct {
 	client service.TaskServiceClient
 }
 
-func NewTasksClient(options types.Options) Client {
+func NewTasksClient() Client {
+	// Load current environment
+	env := os.Getenv(EnvironmentVariable)
+
+	// load config options
+	options := loadEnvironmentConfig(env)
 
 	var conn *grpc.ClientConn
 
@@ -58,4 +69,29 @@ func (i *TasksClientImpl) AddTask(ctx context.Context, data string) (*types.Crea
 	}
 
 	return response, nil
+}
+
+// loadEnvironmentConfig will use the environment string and concatenate to a proper config file to use
+func loadEnvironmentConfig(env string) types.Options {
+	configFile := "config/" + ServiceName + "/" + env + ".json"
+	if _, err := os.Stat(configFile); os.IsNotExist(err) {
+		panic(err)
+	}
+	return parseConfigFile(configFile)
+}
+
+func parseConfigFile(configFile string) types.Options {
+	var opts types.Options
+	byts, err := ioutil.ReadFile(configFile)
+
+	if err != nil {
+		panic(err)
+	}
+
+	err = json.Unmarshal(byts, &opts)
+	if err != nil {
+		panic(err)
+	}
+
+	return opts
 }
