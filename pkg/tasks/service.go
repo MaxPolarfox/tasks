@@ -2,6 +2,7 @@ package tasks
 
 import (
 	"context"
+	"go.mongodb.org/mongo-driver/bson"
 	"log"
 
 	uuid "github.com/satori/go.uuid"
@@ -15,7 +16,7 @@ import (
 //TasksServiceGrpcImpl is a implementation of TasksService Grpc Service.
 type Service struct {
 	options types.Options
-	db DB
+	db      DB
 }
 
 type DB struct {
@@ -26,14 +27,12 @@ type DB struct {
 func NewService(options types.Options, tasksCollection mongoDB.Mongo) *Service {
 	return &Service{
 		options: options,
-		db: DB{tasksCollection},
+		db:      DB{tasksCollection},
 	}
 }
 
 // Add function implementation of gRPC Service.
 func (s *Service) Add(ctx context.Context, newTaskMSG *messages.Task) (*service.AddRepositoryResponse, error) {
-	log.Println("Received request for adding task")
-
 	metricName := "Service.Add"
 
 	taskID := uuid.NewV4().String()
@@ -53,9 +52,58 @@ func (s *Service) Add(ctx context.Context, newTaskMSG *messages.Task) (*service.
 		log.Println(metricName, "err", err)
 		return &service.AddRepositoryResponse{
 			AddedTask: newTaskMSG,
-			Error: &service.Error{Message: err.Error()},
+			Error:     &service.Error{Message: err.Error()},
 		}, err
 	}
 
-	return &service.AddRepositoryResponse{ AddedTask: newTaskMSG, Error: nil}, nil
+	return &service.AddRepositoryResponse{AddedTask: newTaskMSG, Error: nil}, nil
+}
+
+// GetAll function implementation of gRPC Service.
+func (s *Service) GetAll(ctx context.Context, msg *messages.Action) (*service.GetAllTasksResponse, error) {
+	metricName := "Service.GetAll"
+
+	response := service.GetAllTasksResponse{Error: nil}
+
+	tasks := []types.Task{}
+
+	filter := bson.M{}
+	cursor, err := s.db.tasks.Find(ctx, filter)
+	if err != nil {
+		log.Println(metricName+".Find", "err", "err")
+		response.Error = &service.Error{Message: err.Error()}
+		return &response, err
+	}
+
+	err = cursor.All(ctx, &tasks)
+	if err != nil {
+		log.Println(metricName+".All", "err", "err")
+		response.Error = &service.Error{Message: err.Error()}
+		return &response, err
+	}
+
+	for i, task := range tasks {
+		response.Tasks[i] = &messages.Task{Data: task.Data}
+	}
+
+	return &response, nil
+}
+
+// Delete function implementation of gRPC Service.
+func (s *Service) Delete(ctx context.Context, msg *messages.DeleteRequest) (*service.DeleteResponse, error) {
+	metricName := "Service.Delete"
+
+	response := service.DeleteResponse{Error: nil}
+
+	filter := bson.M{"id": msg.Id}
+	_, err := s.db.tasks.DeleteOne(ctx, filter)
+	if err != nil {
+		log.Println(metricName+".DeleteOne", "err", "err")
+		response.Error = &service.Error{Message: err.Error()}
+		return &response, err
+	}
+
+	response.Task.Id = msg.Id
+
+	return &response, nil
 }

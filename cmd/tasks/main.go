@@ -47,7 +47,7 @@ func main() {
 }
 
 // createNetListener creates listener
-func createNetListener (port int) net.Listener {
+func createNetListener(port int) net.Listener {
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
@@ -81,4 +81,3 @@ func parseConfigFile(configFile string) types.Options {
 
 	return opts
 }
-

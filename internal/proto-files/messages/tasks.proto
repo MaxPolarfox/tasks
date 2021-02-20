@@ -8,3 +8,14 @@ message Task {
 	string id  = 1;
 	string data = 2;
 }
+
+message Action {
+    string data = 1;
+}
+
+message DeleteRequest {
+    string id = 1;
+}
+
+
+

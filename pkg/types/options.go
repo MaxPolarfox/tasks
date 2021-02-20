@@ -5,9 +5,9 @@ import (
 )
 
 type Options struct {
-	Port int `json:"port"`
-	ServiceName string `json:"serviceName"`
-	DB Collections `json:"db"`
+	Port        int         `json:"port"`
+	ServiceName string      `json:"serviceName"`
+	DB          Collections `json:"db"`
 }
 
 type Collections struct {

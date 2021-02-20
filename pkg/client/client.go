@@ -2,21 +2,15 @@ package client
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"fmt"
-	"io/ioutil"
-	"log"
 	"github.com/MaxPolarfox/tasks/pkg/types"
-	"os"
-
 	"google.golang.org/grpc"
+	"log"
 
 	"github.com/MaxPolarfox/tasks/pkg/grpc/messages"
 	"github.com/MaxPolarfox/tasks/pkg/grpc/service"
 )
-
-const ServiceName = "tasks"
-const EnvironmentVariable = "APP_ENV"
 
 type Client interface {
 	AddTask(ctx context.Context, data string) (*types.CreatedTaskResponse, error)
@@ -54,7 +48,7 @@ func (i *TasksClientImpl) AddTask(ctx context.Context, data string) (*types.Crea
 
 	responseMSG, err := i.client.Add(ctx, &taskMSG)
 	if err != nil {
-		log.Printf(metricName, "err", err)
+		log.Printf(metricName+".Add", "err", err)
 		return nil, err
 	}
 
@@ -65,27 +59,42 @@ func (i *TasksClientImpl) AddTask(ctx context.Context, data string) (*types.Crea
 	return response, nil
 }
 
-// loadEnvironmentConfig will use the environment string and concatenate to a proper config file to use
-func loadEnvironmentConfig(env string) types.Options {
-	configFile := "config/" + ServiceName + "/" + env + ".json"
-	if _, err := os.Stat(configFile); os.IsNotExist(err) {
-		panic(err)
+func (i *TasksClientImpl) GetAllTasks(ctx context.Context) (*[]types.Task, error) {
+
+	metricName := "TasksClientImpl.AddTask"
+
+	msg := messages.Action{Data: "delete"}
+
+	responseMSG, err := i.client.GetAll(ctx, &msg)
+	if err != nil {
+		log.Printf(metricName, "err", err)
+		return nil, err
 	}
-	return parseConfigFile(configFile)
+
+	tasks := []types.Task{}
+
+	for _, taskMsg := range responseMSG.Tasks {
+		task := types.Task{ID: taskMsg.Id, Data: taskMsg.Data}
+		tasks = append(tasks, task)
+	}
+
+	return &tasks, nil
 }
 
-func parseConfigFile(configFile string) types.Options {
-	var opts types.Options
-	byts, err := ioutil.ReadFile(configFile)
+func (i *TasksClientImpl) DeleteTask(ctx context.Context, taskID string) error {
 
+	metricName := "TasksClientImpl.DeleteTask"
+
+	msg := messages.DeleteRequest{Id: taskID}
+
+	responseMSG, err := i.client.Delete(ctx, &msg)
 	if err != nil {
-		panic(err)
+		log.Printf(metricName+".Delete", "err", err)
+		return err
 	}
 
-	err = json.Unmarshal(byts, &opts)
-	if err != nil {
-		panic(err)
+	if responseMSG.Error != nil {
+		return errors.New(responseMSG.Error.Message)
 	}
-
-	return opts
+	return nil
 }

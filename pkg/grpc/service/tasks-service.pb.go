@@ -8,6 +8,7 @@ package service
 
 import (
 	context "context"
+	messages "github.com/MaxPolarfox/tasks/pkg/grpc/messages"
 	proto "github.com/golang/protobuf/proto"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
@@ -16,7 +17,6 @@ import (
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
-	messages "github.com/MaxPolarfox/tasks/pkg/grpc/messages"
 )
 
 const (
@@ -85,6 +85,116 @@ func (x *AddRepositoryResponse) GetError() *Error {
 	return nil
 }
 
+type GetAllTasksResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Tasks []*messages.Task `protobuf:"bytes,1,rep,name=tasks,proto3" json:"tasks,omitempty"`
+	Error *Error           `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
+}
+
+func (x *GetAllTasksResponse) Reset() {
+	*x = GetAllTasksResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_tasks_internal_proto_files_service_tasks_service_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetAllTasksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAllTasksResponse) ProtoMessage() {}
+
+func (x *GetAllTasksResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_tasks_internal_proto_files_service_tasks_service_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAllTasksResponse.ProtoReflect.Descriptor instead.
+func (*GetAllTasksResponse) Descriptor() ([]byte, []int) {
+	return file_tasks_internal_proto_files_service_tasks_service_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetAllTasksResponse) GetTasks() []*messages.Task {
+	if x != nil {
+		return x.Tasks
+	}
+	return nil
+}
+
+func (x *GetAllTasksResponse) GetError() *Error {
+	if x != nil {
+		return x.Error
+	}
+	return nil
+}
+
+type DeleteResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Task  *messages.Task `protobuf:"bytes,1,opt,name=task,proto3" json:"task,omitempty"`
+	Error *Error         `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
+}
+
+func (x *DeleteResponse) Reset() {
+	*x = DeleteResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_tasks_internal_proto_files_service_tasks_service_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DeleteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteResponse) ProtoMessage() {}
+
+func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_tasks_internal_proto_files_service_tasks_service_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteResponse.ProtoReflect.Descriptor instead.
+func (*DeleteResponse) Descriptor() ([]byte, []int) {
+	return file_tasks_internal_proto_files_service_tasks_service_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *DeleteResponse) GetTask() *messages.Task {
+	if x != nil {
+		return x.Task
+	}
+	return nil
+}
+
+func (x *DeleteResponse) GetError() *Error {
+	if x != nil {
+		return x.Error
+	}
+	return nil
+}
+
 type Error struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -97,7 +207,7 @@ type Error struct {
 func (x *Error) Reset() {
 	*x = Error{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_tasks_internal_proto_files_service_tasks_service_proto_msgTypes[1]
+		mi := &file_tasks_internal_proto_files_service_tasks_service_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -110,7 +220,7 @@ func (x *Error) String() string {
 func (*Error) ProtoMessage() {}
 
 func (x *Error) ProtoReflect() protoreflect.Message {
-	mi := &file_tasks_internal_proto_files_service_tasks_service_proto_msgTypes[1]
+	mi := &file_tasks_internal_proto_files_service_tasks_service_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -123,7 +233,7 @@ func (x *Error) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Error.ProtoReflect.Descriptor instead.
 func (*Error) Descriptor() ([]byte, []int) {
-	return file_tasks_internal_proto_files_service_tasks_service_proto_rawDescGZIP(), []int{1}
+	return file_tasks_internal_proto_files_service_tasks_service_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Error) GetCode() string {
@@ -157,16 +267,36 @@ var file_tasks_internal_proto_files_service_tasks_service_proto_rawDesc = []byte
 	0x61, 0x64, 0x64, 0x65, 0x64, 0x54, 0x61, 0x73, 0x6b, 0x12, 0x24, 0x0a, 0x05, 0x65, 0x72, 0x72,
 	0x6f, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69,
 	0x63, 0x65, 0x2e, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x52, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x22,
-	0x35, 0x0a, 0x05, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x63, 0x6f, 0x64, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x12, 0x18, 0x0a, 0x07,
-	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d,
-	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x32, 0x44, 0x0a, 0x0b, 0x54, 0x61, 0x73, 0x6b, 0x53, 0x65,
+	0x61, 0x0a, 0x13, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x24, 0x0a, 0x05, 0x74, 0x61, 0x73, 0x6b, 0x73, 0x18,
+	0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73,
+	0x2e, 0x54, 0x61, 0x73, 0x6b, 0x52, 0x05, 0x74, 0x61, 0x73, 0x6b, 0x73, 0x12, 0x24, 0x0a, 0x05,
+	0x65, 0x72, 0x72, 0x6f, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x73, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x52, 0x05, 0x65, 0x72, 0x72,
+	0x6f, 0x72, 0x22, 0x5a, 0x0a, 0x0e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x22, 0x0a, 0x04, 0x74, 0x61, 0x73, 0x6b, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2e, 0x54, 0x61,
+	0x73, 0x6b, 0x52, 0x04, 0x74, 0x61, 0x73, 0x6b, 0x12, 0x24, 0x0a, 0x05, 0x65, 0x72, 0x72, 0x6f,
+	0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
+	0x65, 0x2e, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x52, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x22, 0x35,
+	0x0a, 0x05, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d,
+	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65,
+	0x73, 0x73, 0x61, 0x67, 0x65, 0x32, 0xba, 0x01, 0x0a, 0x0b, 0x54, 0x61, 0x73, 0x6b, 0x53, 0x65,
 	0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x35, 0x0a, 0x03, 0x61, 0x64, 0x64, 0x12, 0x0e, 0x2e, 0x6d,
 	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2e, 0x54, 0x61, 0x73, 0x6b, 0x1a, 0x1e, 0x2e, 0x73,
 	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x41, 0x64, 0x64, 0x52, 0x65, 0x70, 0x6f, 0x73, 0x69,
-	0x74, 0x6f, 0x72, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x18, 0x5a, 0x16,
-	0x74, 0x61, 0x73, 0x6b, 0x73, 0x2f, 0x70, 0x6b, 0x67, 0x2f, 0x67, 0x72, 0x70, 0x63, 0x2f, 0x73,
-	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x74, 0x6f, 0x72, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x38, 0x0a, 0x06,
+	0x67, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x12, 0x10, 0x2e, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65,
+	0x73, 0x2e, 0x41, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x1a, 0x1c, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x2e, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x3a, 0x0a, 0x06, 0x64, 0x65, 0x6c, 0x65, 0x74, 0x65,
+	0x12, 0x17, 0x2e, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2e, 0x44, 0x65, 0x6c, 0x65,
+	0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x17, 0x2e, 0x73, 0x65, 0x72, 0x76,
+	0x69, 0x63, 0x65, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x42, 0x18, 0x5a, 0x16, 0x74, 0x61, 0x73, 0x6b, 0x73, 0x2f, 0x70, 0x6b, 0x67, 0x2f,
+	0x67, 0x72, 0x70, 0x63, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x62, 0x06, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -181,22 +311,34 @@ func file_tasks_internal_proto_files_service_tasks_service_proto_rawDescGZIP() [
 	return file_tasks_internal_proto_files_service_tasks_service_proto_rawDescData
 }
 
-var file_tasks_internal_proto_files_service_tasks_service_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_tasks_internal_proto_files_service_tasks_service_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_tasks_internal_proto_files_service_tasks_service_proto_goTypes = []interface{}{
-	(*AddRepositoryResponse)(nil), // 0: service.AddRepositoryResponse
-	(*Error)(nil),                 // 1: service.Error
-	(*messages.Task)(nil),         // 2: messages.Task
+	(*AddRepositoryResponse)(nil),  // 0: service.AddRepositoryResponse
+	(*GetAllTasksResponse)(nil),    // 1: service.GetAllTasksResponse
+	(*DeleteResponse)(nil),         // 2: service.DeleteResponse
+	(*Error)(nil),                  // 3: service.Error
+	(*messages.Task)(nil),          // 4: messages.Task
+	(*messages.Action)(nil),        // 5: messages.Action
+	(*messages.DeleteRequest)(nil), // 6: messages.DeleteRequest
 }
 var file_tasks_internal_proto_files_service_tasks_service_proto_depIdxs = []int32{
-	2, // 0: service.AddRepositoryResponse.addedTask:type_name -> messages.Task
-	1, // 1: service.AddRepositoryResponse.error:type_name -> service.Error
-	2, // 2: service.TaskService.add:input_type -> messages.Task
-	0, // 3: service.TaskService.add:output_type -> service.AddRepositoryResponse
-	3, // [3:4] is the sub-list for method output_type
-	2, // [2:3] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	4, // 0: service.AddRepositoryResponse.addedTask:type_name -> messages.Task
+	3, // 1: service.AddRepositoryResponse.error:type_name -> service.Error
+	4, // 2: service.GetAllTasksResponse.tasks:type_name -> messages.Task
+	3, // 3: service.GetAllTasksResponse.error:type_name -> service.Error
+	4, // 4: service.DeleteResponse.task:type_name -> messages.Task
+	3, // 5: service.DeleteResponse.error:type_name -> service.Error
+	4, // 6: service.TaskService.add:input_type -> messages.Task
+	5, // 7: service.TaskService.getAll:input_type -> messages.Action
+	6, // 8: service.TaskService.delete:input_type -> messages.DeleteRequest
+	0, // 9: service.TaskService.add:output_type -> service.AddRepositoryResponse
+	1, // 10: service.TaskService.getAll:output_type -> service.GetAllTasksResponse
+	2, // 11: service.TaskService.delete:output_type -> service.DeleteResponse
+	9, // [9:12] is the sub-list for method output_type
+	6, // [6:9] is the sub-list for method input_type
+	6, // [6:6] is the sub-list for extension type_name
+	6, // [6:6] is the sub-list for extension extendee
+	0, // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_tasks_internal_proto_files_service_tasks_service_proto_init() }
@@ -218,6 +360,30 @@ func file_tasks_internal_proto_files_service_tasks_service_proto_init() {
 			}
 		}
 		file_tasks_internal_proto_files_service_tasks_service_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetAllTasksResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_tasks_internal_proto_files_service_tasks_service_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_tasks_internal_proto_files_service_tasks_service_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Error); i {
 			case 0:
 				return &v.state
@@ -236,7 +402,7 @@ func file_tasks_internal_proto_files_service_tasks_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_tasks_internal_proto_files_service_tasks_service_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -263,6 +429,8 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type TaskServiceClient interface {
 	Add(ctx context.Context, in *messages.Task, opts ...grpc.CallOption) (*AddRepositoryResponse, error)
+	GetAll(ctx context.Context, in *messages.Action, opts ...grpc.CallOption) (*GetAllTasksResponse, error)
+	Delete(ctx context.Context, in *messages.DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
 }
 
 type taskServiceClient struct {
@@ -282,9 +450,29 @@ func (c *taskServiceClient) Add(ctx context.Context, in *messages.Task, opts ...
 	return out, nil
 }
 
+func (c *taskServiceClient) GetAll(ctx context.Context, in *messages.Action, opts ...grpc.CallOption) (*GetAllTasksResponse, error) {
+	out := new(GetAllTasksResponse)
+	err := c.cc.Invoke(ctx, "/service.TaskService/getAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *taskServiceClient) Delete(ctx context.Context, in *messages.DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error) {
+	out := new(DeleteResponse)
+	err := c.cc.Invoke(ctx, "/service.TaskService/delete", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TaskServiceServer is the server API for TaskService service.
 type TaskServiceServer interface {
 	Add(context.Context, *messages.Task) (*AddRepositoryResponse, error)
+	GetAll(context.Context, *messages.Action) (*GetAllTasksResponse, error)
+	Delete(context.Context, *messages.DeleteRequest) (*DeleteResponse, error)
 }
 
 // UnimplementedTaskServiceServer can be embedded to have forward compatible implementations.
@@ -293,6 +481,12 @@ type UnimplementedTaskServiceServer struct {
 
 func (*UnimplementedTaskServiceServer) Add(context.Context, *messages.Task) (*AddRepositoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Add not implemented")
+}
+func (*UnimplementedTaskServiceServer) GetAll(context.Context, *messages.Action) (*GetAllTasksResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAll not implemented")
+}
+func (*UnimplementedTaskServiceServer) Delete(context.Context, *messages.DeleteRequest) (*DeleteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
 
 func RegisterTaskServiceServer(s *grpc.Server, srv TaskServiceServer) {
@@ -317,6 +511,42 @@ func _TaskService_Add_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TaskService_GetAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(messages.Action)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TaskServiceServer).GetAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/service.TaskService/GetAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TaskServiceServer).GetAll(ctx, req.(*messages.Action))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TaskService_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(messages.DeleteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TaskServiceServer).Delete(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/service.TaskService/Delete",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TaskServiceServer).Delete(ctx, req.(*messages.DeleteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _TaskService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "service.TaskService",
 	HandlerType: (*TaskServiceServer)(nil),
@@ -324,6 +554,14 @@ var _TaskService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "add",
 			Handler:    _TaskService_Add_Handler,
+		},
+		{
+			MethodName: "getAll",
+			Handler:    _TaskService_GetAll_Handler,
+		},
+		{
+			MethodName: "delete",
+			Handler:    _TaskService_Delete_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
