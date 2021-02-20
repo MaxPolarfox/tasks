@@ -14,6 +14,8 @@ import (
 
 type Client interface {
 	AddTask(ctx context.Context, data string) (*types.CreatedTaskResponse, error)
+	GetAllTasks(ctx context.Context) (*[]types.Task, error)
+	DeleteTask(ctx context.Context, taskID string) error
 }
 
 type TasksClientImpl struct {
