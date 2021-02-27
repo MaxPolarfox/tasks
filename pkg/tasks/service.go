@@ -82,6 +82,8 @@ func (s *Service) GetAll(ctx context.Context, msg *messages.Action) (*service.Ge
 		return &response, err
 	}
 
+	response.Tasks = make([]*messages.Task, len(tasks))
+
 	for i, task := range tasks {
 		response.Tasks[i] = &messages.Task{Data: task.Data}
 	}
@@ -103,7 +105,7 @@ func (s *Service) Delete(ctx context.Context, msg *messages.DeleteRequest) (*ser
 		return &response, err
 	}
 
-	response.Task.Id = msg.Id
+	response.Task = &messages.Task{Id: msg.Id}
 
 	return &response, nil
 }
