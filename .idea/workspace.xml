@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06e5c179-90e4-4b79-80d3-95023f26bc74" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pkg/tests/unit/tasks_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/tasks/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/tasks/service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tasks" beforeDir="false" afterPath="$PROJECT_DIR$/tasks" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
