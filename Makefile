@@ -18,7 +18,7 @@ build-mac:
 
 docker-build:
 	@echo "Building docker image ${SERVICE_NAME}:${GIT_SHA}"
-	docker build -t ${SERVICE_NAME}:${GIT_SHA}
+	docker build -t ${SERVICE_NAME}:${GIT_SHA} .
 .PHONY: docker-build
 
 start: build
