@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package service;
 
-option go_package = "tasks/pkg/grpc/service";
+option go_package = "tasks_grpc/pkg/grpc/service";
 
-import "tasks/internal/proto-files/messages/tasks.proto";
+import "tasks_grpc/internal/proto-files/messages/tasks_grpc.proto";
 
 //TaskService Definition
 service TaskService {

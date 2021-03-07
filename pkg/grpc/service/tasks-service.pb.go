@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.25.0
 // 	protoc        v3.14.0
-// source: tasks/internal/proto-files/service/tasks-service.proto
+// source: tasks_grpc/internal/proto-files/service/tasks_grpc-service.proto
 
 package service
 
@@ -90,7 +90,7 @@ type GetAllTasksResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Tasks []*messages.Task `protobuf:"bytes,1,rep,name=tasks,proto3" json:"tasks,omitempty"`
+	Tasks []*messages.Task `protobuf:"bytes,1,rep,name=tasks_grpc,proto3" json:"tasks_grpc,omitempty"`
 	Error *Error           `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
 }
 
@@ -324,7 +324,7 @@ var file_tasks_internal_proto_files_service_tasks_service_proto_goTypes = []inte
 var file_tasks_internal_proto_files_service_tasks_service_proto_depIdxs = []int32{
 	4, // 0: service.AddRepositoryResponse.addedTask:type_name -> messages.Task
 	3, // 1: service.AddRepositoryResponse.error:type_name -> service.Error
-	4, // 2: service.GetAllTasksResponse.tasks:type_name -> messages.Task
+	4, // 2: service.GetAllTasksResponse.tasks_grpc:type_name -> messages.Task
 	3, // 3: service.GetAllTasksResponse.error:type_name -> service.Error
 	4, // 4: service.DeleteResponse.task:type_name -> messages.Task
 	3, // 5: service.DeleteResponse.error:type_name -> service.Error
@@ -424,7 +424,7 @@ var _ grpc.ClientConnInterface
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion6
 
-// TaskServiceClient is the client API for TaskService service.
+// TaskServiceClient is the grpc_client API for TaskService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type TaskServiceClient interface {
@@ -565,5 +565,5 @@ var _TaskService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "tasks/internal/proto-files/service/tasks-service.proto",
+	Metadata: "tasks_grpc/internal/proto-files/service/tasks_grpc-service.proto",
 }

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package messages;
 
-option go_package = "tasks/pkg/grpc/messages";
+option go_package = "tasks_grpc/pkg/grpc/messages";
 
 message Task {
 	string id  = 1;
