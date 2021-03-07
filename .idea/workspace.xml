@@ -2,22 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06e5c179-90e4-4b79-80d3-95023f26bc74" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Makefile.tasks_grpc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile.tasks_grpc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/tasks/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/tasks_grpc/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/tasks/development.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/tasks_grpc/development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/k8s/tasks/tasks-depl.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/k8s/tasks_grpc/tasks_grpc-depl.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/k8s/tasks/tasks.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/k8s/tasks_grpc/tasks_grpc.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/proto-files/messages/tasks.proto" beforeDir="false" afterPath="$PROJECT_DIR$/internal/proto-files/messages/tasks.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/proto-files/service/tasks-service.proto" beforeDir="false" afterPath="$PROJECT_DIR$/internal/proto-files/service/tasks-service.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/client/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/grpc_client/client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/grpc/messages/tasks.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/grpc/messages/tasks.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/grpc/service/tasks-service.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/grpc/service/tasks-service.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/tasks/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/tasks_grpc/service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/tests/unit/tasks_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks" beforeDir="false" afterPath="$PROJECT_DIR$/tasks_grpc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks_grpc" beforeDir="false" afterPath="$PROJECT_DIR$/tasks_grpc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,22 +49,22 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/cmd/tasks_rest" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/cmd" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/cmd/tasks_rest" />
+      <recent name="$PROJECT_DIR$/cmd" />
       <recent name="$PROJECT_DIR$/config" />
+      <recent name="$PROJECT_DIR$/cmd/tasks_rest" />
       <recent name="$PROJECT_DIR$/pkg/tasks" />
       <recent name="$PROJECT_DIR$/pkg/client" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pkg" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build github.com/MaxPolarfox/tasks/cmd/tasks_grpc">
+  <component name="RunManager" selected="Makefile.start">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="tasks" />
       <working_directory value="$PROJECT_DIR$" />
@@ -116,15 +105,6 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build tasks/cmd/grpc/server" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="tasks" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/cmd/grpc/server/main.go" />
-      <package value="tasks/cmd/grpc/server" />
-      <directory value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
     <configuration name="go build tasks/cmd/tasks" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="tasks" />
       <working_directory value="$PROJECT_DIR$" />
@@ -148,20 +128,26 @@
       <filePath value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <configuration name="start" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="start" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Go Build.go build tasks/cmd/grpc/client" />
-      <item itemvalue="Go Build.go build tasks/cmd/grpc/server" />
       <item itemvalue="Go Build.go build tasks/cmd/tasks" />
       <item itemvalue="Go Build.go build github.com/MaxPolarfox/tasks/cmd/tasks" />
       <item itemvalue="Go Build.go build github.com/MaxPolarfox/tasks/cmd/tasks_grpc" />
+      <item itemvalue="Makefile.start" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Makefile.start" />
         <item itemvalue="Go Build.go build github.com/MaxPolarfox/tasks/cmd/tasks_grpc" />
         <item itemvalue="Go Build.go build github.com/MaxPolarfox/tasks/cmd/tasks" />
         <item itemvalue="Go Build.go build tasks/cmd/tasks" />
         <item itemvalue="Go Build.go build tasks/cmd/grpc/client" />
-        <item itemvalue="Go Build.go build tasks/cmd/grpc/server" />
       </list>
     </recent_temporary>
   </component>
