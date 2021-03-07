@@ -41,7 +41,6 @@ func NewTasksClient() Client {
 }
 
 func (i *TasksClientImpl) AddTask(ctx context.Context, data string) (*types.CreatedTaskResponse, error) {
-
 	metricName := "TasksClientImpl.AddTask"
 
 	taskMSG := messages.Task{
@@ -62,7 +61,6 @@ func (i *TasksClientImpl) AddTask(ctx context.Context, data string) (*types.Crea
 }
 
 func (i *TasksClientImpl) GetAllTasks(ctx context.Context) (*[]types.Task, error) {
-
 	metricName := "TasksClientImpl.AddTask"
 
 	msg := messages.Action{Data: "delete"}
@@ -73,11 +71,10 @@ func (i *TasksClientImpl) GetAllTasks(ctx context.Context) (*[]types.Task, error
 		return nil, err
 	}
 
-	tasks := []types.Task{}
+	tasks := make([]types.Task, len(responseMSG.Tasks))
 
-	for _, taskMsg := range responseMSG.Tasks {
-		task := types.Task{ID: taskMsg.Id, Data: taskMsg.Data}
-		tasks = append(tasks, task)
+	for i, taskMsg := range responseMSG.Tasks {
+		tasks[i] = types.Task{ID: taskMsg.Id, Data: taskMsg.Data}
 	}
 
 	return &tasks, nil

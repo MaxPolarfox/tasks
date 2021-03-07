@@ -5,5 +5,5 @@ metadata:
 spec:
   containers:
     - name: tasks
-      image: tasks:e3d3842
+      image: tasks
       imagePullPolicy: Never

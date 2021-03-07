@@ -63,9 +63,7 @@ func (s *Service) Add(ctx context.Context, newTaskMSG *messages.Task) (*service.
 func (s *Service) GetAll(ctx context.Context, msg *messages.Action) (*service.GetAllTasksResponse, error) {
 	metricName := "Service.GetAll"
 
-	response := service.GetAllTasksResponse{Error: nil}
-
-	tasks := []types.Task{}
+	response := service.GetAllTasksResponse{Error: nil, Tasks: []*messages.Task{}}
 
 	filter := bson.M{}
 	cursor, err := s.db.tasks.Find(ctx, filter)
@@ -75,17 +73,11 @@ func (s *Service) GetAll(ctx context.Context, msg *messages.Action) (*service.Ge
 		return &response, err
 	}
 
-	err = cursor.All(ctx, &tasks)
+	err = cursor.All(ctx, &response.Tasks)
 	if err != nil {
 		log.Println(metricName+".All", "err", "err")
 		response.Error = &service.Error{Message: err.Error()}
 		return &response, err
-	}
-
-	response.Tasks = make([]*messages.Task, len(tasks))
-
-	for i, task := range tasks {
-		response.Tasks[i] = &messages.Task{Data: task.Data}
 	}
 
 	return &response, nil
