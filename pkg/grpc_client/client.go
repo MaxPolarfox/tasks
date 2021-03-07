@@ -4,10 +4,11 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/MaxPolarfox/tasks/pkg/types"
 	"google.golang.org/grpc"
 	"log"
 
+	goToolsClient "github.com/MaxPolarfox/goTools/client"
+	"github.com/MaxPolarfox/tasks/pkg/types"
 	"github.com/MaxPolarfox/tasks/pkg/grpc/messages"
 	"github.com/MaxPolarfox/tasks/pkg/grpc/service"
 )
@@ -22,10 +23,10 @@ type TasksClientImpl struct {
 	client service.TaskServiceClient
 }
 
-func NewTasksClient() Client {
+func NewTasksClient(options goToolsClient.Options) Client {
 	var conn *grpc.ClientConn
 
-	serverAddress := fmt.Sprintf("localhost:%d", 3005)
+	serverAddress := options.URL
 
 	conn, err := grpc.Dial(serverAddress, grpc.WithInsecure())
 	if err != nil {
