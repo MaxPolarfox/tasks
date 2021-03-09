@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: Pod
-metadata:
-  name: tasks_grpc
-spec:
-  containers:
-    - name: tasks_grpc
-      image: tasks_grpc
-      imagePullPolicy: Never

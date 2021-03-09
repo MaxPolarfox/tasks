@@ -1,0 +1,37 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: tasks
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tasks
+  template:
+    metadata:
+      name: tasks
+      labels:
+        app: tasks
+    spec:
+      containers:
+        - name: tasks
+          image: maksimpesetski/tasks_grpc:6a06115
+          imagePullPolicy: Always
+          ports:
+            - name: tasks
+              containerPort: 3005
+          env:
+            - name: APP_ENV
+              value: production
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tasks
+spec:
+  selector:
+    app: tasks
+  ports:
+    - protocol: TCP
+      port: 3005
+      targetPort: 3005
