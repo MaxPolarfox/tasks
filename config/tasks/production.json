@@ -1,0 +1,11 @@
+{
+    "serviceName": "tasks",
+    "port": 3005,
+    "db": {
+        "tasks": {
+            "connection": "mongodb://mongodb:27017/tasks-production?retryWrites=true&w=majority",
+            "name": "tasks-production",
+            "collection": "tasks-production"
+        }
+    }
+}

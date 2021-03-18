@@ -15,7 +15,7 @@ start: build
 .PHONY: start
 
 docker-build:
-	@echo "Building docker image for maksimpesetski/${SERVICE_NAME}:${GIT_SHA}"
+	@echo "Building docker image for ${SERVICE_NAME}:${GIT_SHA}"
 	APP_ENV=production \
 	docker build -t maksimpesetski/${SERVICE_NAME}:${GIT_SHA} .
 .PHONY: start

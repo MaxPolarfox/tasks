@@ -2,13 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06e5c179-90e4-4b79-80d3-95023f26bc74" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/tasks_grpc/production.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/k8s/tasks_grpc/tasks.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/proto/tasks.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/taskspb/tasks.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/k8s/tasks_grpc/tasks_grpc-depl.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/k8s/tasks_grpc/tasks_grpc.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks_grpc" beforeDir="false" afterPath="$PROJECT_DIR$/tasks_grpc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/tasks_grpc/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/tasks/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/tasks_grpc/development.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/tasks/development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/tasks_grpc/production.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/tasks/production.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/k8s/tasks_grpc/tasks.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/k8s/tasks_/tasks.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/proto-files/messages/tasks.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/proto-files/service/tasks-service.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/grpc/messages/tasks.pb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/grpc/service/tasks-service.pb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/grpc_client/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/client/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/tasks_grpc/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/tasks/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks_grpc" beforeDir="false" afterPath="$PROJECT_DIR$/tasks" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +73,8 @@
       <recent name="$PROJECT_DIR$/pkg/tasks" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pkg/taskspb" />
+      <recent name="$PROJECT_DIR$/internal/proto-files" />
       <recent name="$PROJECT_DIR$/pkg" />
     </key>
   </component>

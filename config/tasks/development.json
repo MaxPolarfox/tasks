@@ -1,0 +1,11 @@
+{
+    "serviceName": "tasks",
+    "port": 3005,
+    "db": {
+        "tasks": {
+            "connection": "mongodb://localhost:27017/tasks-development?retryWrites=true&w=majority",
+            "name": "tasks-development",
+            "collection": "tasks"
+        }
+    }
+}

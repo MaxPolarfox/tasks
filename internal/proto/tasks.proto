@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package tasks;
+
+option go_package = "taskspb";
+
+message Task {
+  string id  = 1;
+  string data = 2;
+}
+
+message CreateTaskReq {
+  string data = 1;
+}
+
+message CreateTaskRes {
+  string id = 1;
+}
+
+message GetTasksReq {}
+
+message GetTasksRes {
+  repeated Task tasks = 1;
+}
+
+message DeleteTaskReq {
+  string id = 1;
+}
+
+message DeleteTaskRes {}
+
+//TaskService Definition
+service TaskService {
+  rpc createTask (CreateTaskReq) returns (CreateTaskRes){};
+  rpc getTasks (GetTasksReq) returns (GetTasksRes){};
+  rpc deleteTask (DeleteTaskReq) returns (DeleteTaskRes){};
+}
+
